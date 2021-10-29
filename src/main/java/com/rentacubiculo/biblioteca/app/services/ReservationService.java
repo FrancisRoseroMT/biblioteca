@@ -76,5 +76,34 @@ public class ReservationService {
            return true;
         }).orElse(false);
         return aBoolean;
-    }    
+    } 
+    public List<Reservation> getReportDate(String date1, String date2) {
+        
+        SimpleDateFormat parser = new  SimpleDateFormat("yyyy-MM-dd");
+        Date dateOne = new Date();
+        Date dateTwo = new Date();
+        try {
+            dateOne = parser.parse(date1);
+            dateTwo = parser.parse(date2);
+        } catch (Exception e) {
+        }
+        
+        if (dateOne.before(dateTwo)) {
+            return repository.getReportDate(dateOne,dateTwo);
+        }
+        else{
+            return new ArrayList<>();
+        }
+    }
+    
+    public StatusReserva reporteStatusServicio (){
+        List<Reservation>completed= repository.getReservationsBySatus("completed");
+        List<Reservation>cancelled= repository.getReservationsBySatus("cancelled");
+        
+        return new StatusReserva(completed.size(), cancelled.size() );
+    }
+    
+    public List<ContadorClientes> reporteClientesServicio(){
+            return repository.getClientesRepositorio();
+        }
 }

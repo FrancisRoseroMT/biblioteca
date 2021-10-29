@@ -13,5 +13,10 @@ import org.springframework.data.repository.CrudRepository;
  * @author linda
  */
 public interface ReservationCrudRepository extends CrudRepository<Reservation, Integer>{
-    
+public List<Reservation> getAllReservationsByStartDateAfterAndDevolutionDateBefore (Date date1, Date date2);
+    public List<Reservation> findAllByStatus (String status); 
+
+    // SELECT clientid, COUNT(*) AS total FROM reservacion group by clientid order by desc;
+    @Query ("SELECT c.client, COUNT(c.client) from Reservation AS c group by c.client order by COUNT(c.client)DESC")
+    public List<Object[]> countTotalReservationsByClient();    
 }

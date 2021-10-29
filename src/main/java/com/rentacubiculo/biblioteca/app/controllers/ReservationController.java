@@ -5,7 +5,9 @@
  */
 package com.rentacubiculo.biblioteca.app.controllers;
 
+import com.rentacubiculo.biblioteca.app.entities.ContadorClientes;
 import com.rentacubiculo.biblioteca.app.entities.Reservation;
+import com.rentacubiculo.biblioteca.app.entities.StatusReserva;
 import com.rentacubiculo.biblioteca.app.services.ReservationService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +57,16 @@ public class ReservationController {
          service.delete(reservationId);
     }
 
- //Aqui voy a escribir los cambios del reto5    
+    @GetMapping("/report-dates/{date1}/{date2}")
+    public List<Reservation> getReportDate(@PathVariable("date1") String date1,@PathVariable("date2") String date2){
+        return service.getReportDate(date1, date2);
+    }
+    @GetMapping("/report-status")
+    public StatusReserva getReservas(){
+        return service.reporteStatusServicio();
+    }
+    @GetMapping("/report-clients")
+     public List<ContadorClientes> getClientes(){
+         return service.reporteClientesServicio();
+     }    
 }
