@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author David Riaño
+ * @author linda
  */
 public interface MessageCrudRepository extends CrudRepository<Message, Integer>{
     
