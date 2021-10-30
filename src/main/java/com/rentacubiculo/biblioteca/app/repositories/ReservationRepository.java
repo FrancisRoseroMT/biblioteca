@@ -28,6 +28,7 @@ public class ReservationRepository {
     
     /**
      * Consultar
+     * @return 
     */
     public List<Reservation> getAll(){
         return (List<Reservation>) reservationCrudrepository.findAll();
@@ -40,6 +41,8 @@ public class ReservationRepository {
     
     /**
      * Registrar
+     * @param reservation
+     * @return 
      */
     public Reservation save(Reservation reservation){
         return reservationCrudrepository.save(reservation);
@@ -47,6 +50,7 @@ public class ReservationRepository {
     
     /**
      * Eliminar
+     * @param reservation
      */
     public void delete(Reservation reservation){
         reservationCrudrepository.delete(reservation);

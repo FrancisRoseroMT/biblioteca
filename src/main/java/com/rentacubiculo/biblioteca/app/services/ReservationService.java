@@ -6,6 +6,7 @@
 package com.rentacubiculo.biblioteca.app.services;
 
 import com.rentacubiculo.biblioteca.app.entities.Reservation;
+import com.rentacubiculo.biblioteca.app.entities.StatusReserva;
 import com.rentacubiculo.biblioteca.app.repositories.ReservationRepository;
 import java.util.List;
 import java.util.Optional;
