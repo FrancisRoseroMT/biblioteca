@@ -5,9 +5,13 @@
  */
 package com.rentacubiculo.biblioteca.app.services;
 
+import com.rentacubiculo.biblioteca.app.entities.ContadorClientes;
 import com.rentacubiculo.biblioteca.app.entities.Reservation;
 import com.rentacubiculo.biblioteca.app.entities.StatusReserva;
 import com.rentacubiculo.biblioteca.app.repositories.ReservationRepository;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
